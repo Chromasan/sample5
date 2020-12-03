@@ -438,32 +438,6 @@ body {
     }
 }
 
-/*ボタンの装飾*/
-.btn_inbox_position {
-    padding: 20px 30px;
-
-}
-
-.button {
-    margin: auto;
-    display: block;
-    max-width: 180px;
-    border: 2px solid #333;
-    font-size: 16px;
-    color: #333;
-    font-weight: bold;
-    padding: 16px;
-    text-align: center;
-    border-radius: 4px;
-    transition: .4s;
-}
-
-.button:hover {
-    background-color: #333;
-    border-color: #333;
-    color: #FFF;
-}
-
 
 /*about usの文章装飾*/
 .about_us {
@@ -654,6 +628,7 @@ h2:after {
 }
 
 .Form-Btn {
+  -webkit-appearance: none;
     border-radius: 6px;
     margin-top: 20px;
     margin-left: auto;
@@ -671,6 +646,7 @@ h2:after {
 
 @media screen and (max-width: 600px) {
     .Form-Btn {
+      -webkit-appearance: none;
         margin-top: 10px;
         padding-top: 8px;
         padding-bottom: 8px;
