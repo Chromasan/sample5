@@ -1,0 +1,315 @@
+/*ボタンの装飾*/
+.btn{
+  text-align: center;
+}
+.btn-flat-border {
+  width: 100%;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #000;
+  border: solid 2px #000;
+  border-radius: 3px;
+  transition: .4s;
+}
+
+.btn-flat-border:hover {
+  background: #ff6a6a;
+  color: white;
+}
+
+
+/* 画面サイズの横幅が 768px より小さい場合に適用 */
+@media screen and (max-width: 740px) {
+  .article {
+		position:absolute;
+		width:100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10%;
+		height:100%;
+	}
+}
+
+/* 画面サイズの横幅が 480px より大きい場合に適用 */
+@media screen and (min-width: 740px) {
+  .article{
+  	position:absolute;
+  	width:80%;
+    margin-left:10%;
+    margin-right:10%;
+    margin-bottom: 10%;
+  	height:100%;
+  }
+}
+
+.article{
+  background: #fff;
+}
+
+/*並べ方は、ここを参照*/
+/*https://qiita.com/katsunory/items/99a417f4e1a763477a09*/
+html{
+  height: 100%;
+}
+
+header{
+  font-family: 'Noto Serif JP', serif;
+}
+
+body{
+  font-family: 'Noto Serif JP', serif;
+  background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+  /*背景色が途切れない対策*/
+  /*https://qastack.jp/programming/2869212/css3-gradient-background-set-on-body-doesnt-stretch-but-instead-repeats*/
+  height: 100%;
+  margin: 0px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.top{
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  height: 60px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+h1{
+  margin:0px;
+  padding: 0px;
+}
+
+span{
+  color:#ff6a6a;
+}
+
+.article h1 {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  font-size: 22px;
+}
+
+.article p{
+  margin-left: 10%;
+}
+
+.article h2 {
+  font-size: 18px;
+  margin-left: 5%;
+  padding: 0.5rem 0.5rem;
+  border-left: 4px solid #ff6a6a;
+}
+
+.article h3 {
+  font-size: 17px;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-bottom: 3px dotted #e5e5e5;
+  width: auto;
+}
+
+img{
+  display:block;
+  width:80%;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+
+
+/*https://877.design/flexbox-layout/*/
+
+/*メニューの装飾*/
+* {
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+a,
+a:visited,
+a:hover,
+a:active {
+text-decoration: none;
+color: inherit;
+}
+.cp_fullscreenmenu {
+position: fixed;
+z-index: 1;
+top: 0;
+left: 0;
+}
+/*menuコンテンツ*/
+.cp_fullscreenmenu .menu {
+position: fixed;
+top: 0;
+left: 0;
+display: flex;
+visibility: hidden;
+overflow: hidden;
+width: 100%;
+height: 100%;
+pointer-events: none;
+outline: 1px solid transparent;
+-webkit-backface-visibility: hidden;
+backface-visibility: hidden;
+align-items: center;
+justify-content: center;
+}
+.cp_fullscreenmenu .menu > div {
+display: flex;
+overflow: hidden;
+width: 250vw;
+height: 250vw;
+transition: all 0.2s ease;
+-webkit-transform: scale(0);
+transform: scale(0);
+text-align: center;
+color: #fefefe;
+border-radius: 50%;
+background: #000;
+flex: none;
+-webkit-backface-visibility: hidden;
+backface-visibility: hidden;
+align-items: center;
+justify-content: center;
+}
+.cp_fullscreenmenu .menu > div > ul {
+display: block;
+max-height: 100vh;
+margin: 0;
+padding: 0 1em;
+list-style: none;
+transition: opacity 0.2s ease;
+opacity: 0;
+}
+.cp_fullscreenmenu .menu > div > ul > li {
+font-size: 24px;
+display: block;
+margin: 1em;
+padding: 0;
+}
+.cp_fullscreenmenu .menu > div > ul > li > a {
+position: relative;
+display: inline;
+cursor: pointer;
+transition: color 0.2s ease;
+}
+.cp_fullscreenmenu .menu > div > ul > li > a:hover {
+color: #e5e5e5;
+}
+.cp_fullscreenmenu .menu > div > ul > li > a:hover:after {
+width: 100%;
+}
+.cp_fullscreenmenu .menu > div > ul > li > a:after {
+position: absolute;
+z-index: 1;
+bottom: -0.15em;
+left: 0;
+width: 0;
+height: 2px;
+content: '';
+transition: width 0.2s ease;
+background: #e5e5e5;
+}
+/*クリックしたらメニューが開閉の動作*/
+.cp_fullscreenmenu .toggle {
+position: absolute;
+z-index: 2;
+top: 0;
+left: 0;
+width: 60px;
+height: 60px;
+cursor: pointer;
+opacity: 0;
+}
+.cp_fullscreenmenu .toggle:checked + .hamburger > span {
+-webkit-transform: rotate(135deg);
+transform: rotate(135deg);
+}
+.cp_fullscreenmenu .toggle:checked + .hamburger > span:before,
+.cp_fullscreenmenu .toggle:checked + .hamburger > span:after {
+top: 0;
+-webkit-transform: rotate(90deg);
+transform: rotate(90deg);
+}
+.cp_fullscreenmenu .toggle:checked + .hamburger > span:after {
+opacity: 0;
+}
+.cp_fullscreenmenu .toggle:checked ~ .menu {
+visibility: visible;
+pointer-events: auto;
+}
+.cp_fullscreenmenu .toggle:checked ~ .menu > div {
+transition-duration: 0.2s;
+-webkit-transform: scale(1);
+transform: scale(1);
+}
+.cp_fullscreenmenu .toggle:checked ~ .menu > div > ul {
+opacity: 1;
+}
+.cp_fullscreenmenu .toggle:checked ~ .menu > div > ul li:nth-of-type(1) {
+transition-delay: 0s;
+}
+.cp_fullscreenmenu .toggle:checked ~ .menu > div > ul li:nth-of-type(2) {
+transition-delay: 0s;
+}
+.cp_fullscreenmenu .toggle:checked ~ .menu > div > ul li:nth-of-type(3) {
+transition-delay: 0s;
+}
+.cp_fullscreenmenu .toggle:checked ~ .menu > div > ul li:nth-of-type(4) {
+transition-delay: 0s;
+}
+.cp_fullscreenmenu .toggle:hover + .hamburger {
+box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.cp_fullscreenmenu .toggle:checked:hover + .hamburger > span {
+-webkit-transform: rotate(225deg);
+transform: rotate(225deg);
+}
+/*ハンバーガー*/
+.cp_fullscreenmenu .hamburger {
+position: absolute;
+z-index: 1;
+top: 0;
+left: 0;
+display: block;
+width: 60px;
+height: 60px;
+padding: 0.5em 1em;
+cursor: pointer;
+transition: box-shadow 0.2s ease;
+border-radius: 0 0.12em 0.12em 0;
+background: #000;
+-webkit-backface-visibility: hidden;
+backface-visibility: hidden;
+}
+.cp_fullscreenmenu .hamburger > span {
+position: relative;
+top: 50%;
+display: block;
+width: 100%;
+height: 2px;
+transition: all 0.2s ease;
+background: #fefefe;
+}
+.cp_fullscreenmenu .hamburger > span:before,
+.cp_fullscreenmenu .hamburger > span:after {
+position: absolute;
+z-index: 1;
+top: -10px;
+left: 0;
+display: block;
+width: 100%;
+height: 2px;
+content: '';
+transition: all 0.2s ease;
+background: inherit;
+}
+.cp_fullscreenmenu .hamburger > span:after {
+top: 10px;
+}

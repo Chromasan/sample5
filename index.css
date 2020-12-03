@@ -1,0 +1,686 @@
+/*メニューの装飾*/
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.cp_fullscreenmenu {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+/*menuコンテンツ*/
+.cp_fullscreenmenu .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    visibility: hidden;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    outline: 1px solid transparent;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+.cp_fullscreenmenu .menu > div {
+    display: flex;
+    overflow: hidden;
+    width: 250vw;
+    height: 250vw;
+    transition: all 0.2s ease;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    text-align: center;
+    color: #fefefe;
+    border-radius: 50%;
+    background: #000;
+    flex: none;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+.cp_fullscreenmenu .menu > div > ul {
+    display: block;
+    max-height: 100vh;
+    margin: 0;
+    padding: 0 1em;
+    list-style: none;
+    transition: opacity 0.2s ease;
+    opacity: 0;
+}
+
+.cp_fullscreenmenu .menu > div > ul > li {
+    font-size: 24px;
+    display: block;
+    margin: 1em;
+    padding: 0;
+}
+
+.cp_fullscreenmenu .menu > div > ul > li > a {
+    position: relative;
+    display: inline;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.cp_fullscreenmenu .menu > div > ul > li > a:hover {
+    color: #e5e5e5;
+}
+
+.cp_fullscreenmenu .menu > div > ul > li > a:hover:after {
+    width: 100%;
+}
+
+.cp_fullscreenmenu .menu > div > ul > li > a:after {
+    position: absolute;
+    z-index: 1;
+    bottom: -0.15em;
+    left: 0;
+    width: 0;
+    height: 2px;
+    content: '';
+    transition: width 0.2s ease;
+    background: #e5e5e5;
+}
+
+/*クリックしたらメニューが開閉の動作*/
+.cp_fullscreenmenu .toggle {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.cp_fullscreenmenu .toggle:checked + .hamburger > span {
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+
+.cp_fullscreenmenu .toggle:checked + .hamburger > span:before,
+.cp_fullscreenmenu .toggle:checked + .hamburger > span:after {
+    top: 0;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.cp_fullscreenmenu .toggle:checked + .hamburger > span:after {
+    opacity: 0;
+}
+
+.cp_fullscreenmenu .toggle:checked ~ .menu {
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.cp_fullscreenmenu .toggle:checked ~ .menu > div {
+    transition-duration: 0.2s;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.cp_fullscreenmenu .toggle:checked ~ .menu > div > ul {
+    opacity: 1;
+}
+
+.cp_fullscreenmenu .toggle:checked ~ .menu > div > ul li:nth-of-type(1) {
+    transition-delay: 0s;
+}
+
+.cp_fullscreenmenu .toggle:checked ~ .menu > div > ul li:nth-of-type(2) {
+    transition-delay: 0s;
+}
+
+.cp_fullscreenmenu .toggle:checked ~ .menu > div > ul li:nth-of-type(3) {
+    transition-delay: 0s;
+}
+
+.cp_fullscreenmenu .toggle:checked ~ .menu > div > ul li:nth-of-type(4) {
+    transition-delay: 0s;
+}
+
+.cp_fullscreenmenu .toggle:hover + .hamburger {
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cp_fullscreenmenu .toggle:checked:hover + .hamburger > span {
+    -webkit-transform: rotate(225deg);
+    transform: rotate(225deg);
+}
+
+/*ハンバーガー*/
+.cp_fullscreenmenu .hamburger {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 60px;
+    height: 60px;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+    border-radius: 0 0.12em 0.12em 0;
+    background: #000;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.cp_fullscreenmenu .hamburger > span {
+    position: relative;
+    top: 50%;
+    display: block;
+    width: 100%;
+    height: 2px;
+    transition: all 0.2s ease;
+    background: #fefefe;
+}
+
+.cp_fullscreenmenu .hamburger > span:before,
+.cp_fullscreenmenu .hamburger > span:after {
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    content: '';
+    transition: all 0.2s ease;
+    background: inherit;
+}
+
+.cp_fullscreenmenu .hamburger > span:after {
+    top: 10px;
+}
+
+
+
+/*フォントの指定*/
+header {
+    font-family: 'Noto Serif JP', serif;
+}
+
+body {
+    margin: 0px;
+    font-family: 'Noto Serif JP', serif;
+}
+
+/*コピーライトの装飾*/
+.copyright {
+    overflow: hidden;
+    text-align: center;
+    display: table-cell;
+    height: 20px;
+    width: 1250px;
+}
+
+
+
+/*New リストの装飾*/
+*,
+*:before,
+*:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.info {
+    margin: 1em auto;
+    padding: 0 1.5em;
+    border: 1px solid #ccc;
+    text-align: left;
+    font-size: 1em;
+    line-height: 1.3;
+    color: #444;
+    overflow: auto;
+    width: 90%;
+    height: 10em;
+    background-color: #fcfcfc;
+}
+
+.info dl {
+    padding: 0.5em 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.info dt {
+    padding-bottom: 0;
+    width: 6em;
+}
+
+@media screen and (min-width: 600px) {
+    .info dt {
+        clear: left;
+        float: left;
+    }
+
+    .info dd {
+        margin-left: 0.5em;
+    }
+}
+
+.info {
+    display: block;
+}
+
+span {
+    color: #ff6a6a;
+}
+
+.title h1 {
+    text-align: center;
+    font-size: 35px;
+    margin-top: 18px;
+}
+
+
+
+/*画面全体の設定*/
+body {
+    /*background-image: linear-gradient(60deg, #64b3f4 0%, #c2e59c 100%);*/
+    /*background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);*/
+    /*background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%);*/
+    background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+}
+
+
+/*ボックスにおける文字の装飾*/
+/*ボックスタイトルの文字*/
+.content h1 {
+    padding: 30px;
+    padding-top: 20px;
+    font-size: 25px;
+}
+
+.article_box {
+
+    width: 100%;
+    padding-top: 5px;
+    height: auto;
+    /*自動で伸びる*/
+    padding-bottom: 5px;
+}
+
+
+
+/*https://qiita.com/nb_tomo/items/c46fbc05731d1488b877*/
+/*右のボックスの装飾*/
+.content {
+    overflow: hidden;
+    /* はみ出た部分は表示しない */
+}
+
+.content01 {
+    position: relative;
+    height: 100px;
+    width: 100%;
+    color: #ffffff;
+    background-color: #000000;
+    margin-top: 0px;
+}
+
+.content01::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-top: 60px solid transparent;
+    /* 透明 */
+    border-left: 50vw solid transparent;
+    /* 透明 */
+    border-right: 50vw solid #ffffff;
+    /* むらさき */
+    border-bottom: 60px solid #ffffff;
+    /* むらさき */
+}
+
+.content02 {
+    height: 300px;
+    width: 100%;
+    background-color: #ffffff;
+    height: auto;
+    /*自動で伸びる*/
+}
+
+/*斜め切りの実装*/
+@media only screen and (max-width: 2000px) {
+    .content01::after {
+        border-left: 1000px solid transparent;
+        /* 実数で幅を指定 */
+        border-right: 1000px solid #8B3DC5;
+        /* 実数で幅を指定 */
+    }
+}
+
+
+
+
+/*大きな画面の分割の装飾！*/
+.split {
+    display: table;
+    width: 100%;
+    height: auto;
+}
+
+.split-item {
+    display: table-cell;
+    padding-bottom: 10px;
+    padding-top: 0px;
+    height: auto;
+}
+
+.split-left {
+    text-align: center;
+    color: #000;
+    position: relative;
+    /*スマホ画面の場合の縦の長さはこれで調整される*/
+    height: auto;
+    width: 30%;
+}
+
+.split-left__inner {
+    height: auto;
+    /*自動で伸びる*/
+    position: fixed;
+    width: 30%;
+    padding-right: 0px;
+
+    margin-top: 200px;
+    margin-bottom: auto;
+}
+
+.split-right__inner {
+    width: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    /*この数値によって、右の下余白が調整出来る*/
+    height: auto;
+    /*自動で伸びる*/
+}
+
+@media screen and (max-width:1024px) {
+    .split {
+        display: block;
+    }
+
+    .split-item {
+        display: block;
+        width: auto;
+    }
+
+    .split-left__inner {
+        position: inherit;
+        width: auto;
+        margin:0px;
+    }
+}
+
+/*ボタンの装飾*/
+.btn_inbox_position {
+    padding: 20px 30px;
+
+}
+
+.button {
+    margin: auto;
+    display: block;
+    max-width: 180px;
+    border: 2px solid #333;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    padding: 16px;
+    text-align: center;
+    border-radius: 4px;
+    transition: .4s;
+}
+
+.button:hover {
+    background-color: #333;
+    border-color: #333;
+    color: #FFF;
+}
+
+
+/*about usの文章装飾*/
+.about_us {
+    text-align: center;
+}
+
+.about_us h2 {
+    font-size: 20px;
+}
+
+.about_us p {
+    margin: 0px;
+    padding: 0px;
+    font-size: 15px;
+}
+
+
+/*https://saruwakakun.com/html-css/reference/h-design*/
+h2 {
+    position: relative;
+    /*相対位置*/
+    line-height: 1.4;
+    /*行高*/
+    display: inline-block;
+}
+
+h2:before,
+h2:after {
+    position: relative;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    display: inline-block;
+    font-size: 1.0em;
+    color: #ff6a6a;
+}
+
+h2:before {
+    content: "\f053";
+    /*アイコン種類*/
+    padding-right: 0.5em
+}
+
+h2:after {
+    content: "\f054";
+    /*アイコン種類*/
+    padding-left: 0.5em
+}
+
+
+/*お問い合わせフォーム*/
+.Form {
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 720px;
+}
+
+@media screen and (max-width: 600px) {
+    .Form {
+        margin-top: 0px;
+    }
+}
+
+.Form-Item {
+    /*左右の余白調整*/
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 1px solid #ddd;
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+    .Form-Item {
+        padding-left: 14px;
+        padding-right: 14px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        flex-wrap: wrap;
+    }
+}
+
+/*.Form-Item:nth-child(5) {
+    border-bottom: 1px solid #ddd;
+}*/
+
+.Form-Item-Label {
+    width: 100%;
+    max-width: 248px;
+    letter-spacing: 0.05em;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 600px) {
+    .Form-Item-Label {
+        max-width: inherit;
+        display: flex;
+        align-items: center;
+        font-size: 15px;
+    }
+}
+
+.Form-Item-Label.isMsg {
+    margin-top: 8px;
+    margin-bottom: auto;
+}
+
+@media screen and (max-width: 600px) {
+    .Form-Item-Label.isMsg {
+        margin-top: 0;
+    }
+}
+
+.Form-Item-Label-Required {
+    border-radius: 6px;
+    margin-right: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: 48px;
+    display: inline-block;
+    text-align: center;
+    background: #ff6a6a;
+    color: #fff;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 600px) {
+    .Form-Item-Label-Required {
+        border-radius: 4px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        width: 40px;
+        font-size: 14px;
+    }
+}
+
+.Form-Item-Input {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-left: 40px;
+    padding-left: 1em;
+    padding-right: 1em;
+    height: 48px;
+    flex: 1;
+    width: 100%;
+    max-width: 410px;
+    background: #eaedf2;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 600px) {
+    .Form-Item-Input {
+        margin-left: 0;
+        margin-top: 18px;
+        height: 40px;
+        flex: inherit;
+        font-size: 15px;
+    }
+}
+
+.Form-Item-Textarea {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-left: 40px;
+    padding-left: 1em;
+    padding-right: 1em;
+    height: 216px;
+    flex: 1;
+    width: 100%;
+    max-width: 410px;
+    background: #eaedf2;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 600px) {
+    .Form-Item-Textarea {
+        margin-top: 18px;
+        margin-left: 0;
+        height: 200px;
+        flex: inherit;
+        font-size: 15px;
+    }
+}
+
+.Form-Btn {
+    border-radius: 6px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 180px;
+    display: block;
+    letter-spacing: 0.05em;
+    background: #ff6a6a;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .Form-Btn {
+        margin-top: 10px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        width: 160px;
+        font-size: 16px;
+    }
+}
+
+
+/*formのpのサイズ編集*/
+.form p {
+  margin:0px;
+}
